@@ -1,0 +1,822 @@
+<!doctype html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#151515">
+<title>Internet2 — Homepage Concept · Live Network Map</title>
+<meta name="description" content="Internet2 homepage design concept with an interactive national backbone map and motion system.">
+<style>
+:root{--ink:#181818;--paper:#fff;--muted:#5c5d61;--red:#ed3339;--pink:#ffe7e4;--bg:#f5f4f1;--stroke:#deded9;--max:1220px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}section[id]{scroll-margin-top:104px}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--red);outline-offset:4px}.wrap{width:min(var(--max),calc(100% - 96px));margin:0 auto} .sr-only{position:absolute;clip:rect(0 0 0 0);width:1px;height:1px;overflow:hidden}
+.topbar{height:88px;background:white;position:sticky;top:0;z-index:20;border-bottom:1px solid #ededed}.nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:48px}.logo{display:flex;align-items:center;line-height:1}.logo img{width:155px;height:auto;display:block}.nav-links{display:flex;align-items:center;gap:35px;margin-left:auto}.nav-links a{font-size:14px;font-weight:750;letter-spacing:-.01em;white-space:nowrap}.nav-links a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}.nav-tools{display:flex;gap:12px;align-items:center;margin-left:15px}.nav-icon{border:1px solid #e2e2e2;background:white;height:44px;width:44px;display:grid;place-items:center;border-radius:50%}.nav-icon svg{width:18px;height:18px}.mobile-menu{display:none}
+.search-panel{display:none;position:absolute;left:0;top:88px;width:100%;background:#fff;border-bottom:1px solid #d5d5d5;box-shadow:0 14px 30px #00000012;padding:28px 0}.search-panel.open{display:block}.search-control{display:flex;align-items:center;gap:18px}.search-control input{width:100%;border:0;border-bottom:2px solid var(--ink);padding:14px 0;font-size:24px;outline:0}.search-hint{font-size:12px;color:var(--muted);margin-top:10px}
+.hero{background:#151515;color:#fff;position:relative;min-height:590px;overflow:hidden;clip-path:polygon(0 0,100% 0,100% 92%,86% 92%,86% 100%,59% 100%,59% 96%,41% 96%,41% 100%,17% 100%,17% 95%,0 95%)}.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);min-height:590px;align-items:center;position:relative}.hero-content{position:relative;z-index:2;padding:88px 0 110px}.eyebrow{font-size:12px;letter-spacing:.19em;text-transform:uppercase;font-weight:800}.hero .eyebrow{color:#ffada8;display:flex;align-items:center;gap:12px}.red-dash{display:inline-block;width:27px;height:3px;background:var(--red)}h1,h2,h3,p{margin-top:0}.hero h1{font-size:clamp(56px,6.5vw,96px);line-height:.995;letter-spacing:-.072em;max-width:800px;font-weight:800;margin:28px 0 26px}.hero h1 em{font-style:normal;color:#ff504f}.hero p{max-width:580px;font-size:20px;line-height:1.48;letter-spacing:-.015em;color:#dbdbdb;margin:0 0 35px}.hero-actions{display:flex;gap:22px;align-items:center;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:24px;min-height:50px;border-radius:3px;padding:0 23px;font-size:14px;font-weight:800}.btn-red{background:var(--red);color:white}.btn-red:hover{background:#ce222d}.btn-ghost{border-bottom:2px solid #aaa;padding:0 3px;min-height:43px}
+.hero-actions .btn-ghost{gap:12px}.btn-ghost:hover{border-color:#fff}.hero-art{position:relative;align-self:stretch;min-height:470px}.hero-art svg{position:absolute;width:690px;height:610px;top:-5px;right:-165px;overflow:visible}.orbit-caption{position:absolute;bottom:105px;right:30px;letter-spacing:.2em;font-weight:800;font-size:10px;color:#ffb5b2}.hero::after{content:"";position:absolute;width:320px;height:320px;border-radius:50%;right:-180px;top:-170px;background:#ef333d0c;box-shadow:0 0 190px 160px #ed333912;pointer-events:none}
+.services{padding:94px 0 95px}.services-overline{display:flex;gap:18px;align-items:center;font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--red);margin-bottom:22px}.section-lead{display:flex;justify-content:space-between;gap:64px;align-items:end;padding-bottom:70px}.section-lead h2{font-size:clamp(43px,5.1vw,69px);font-weight:800;line-height:1.07;letter-spacing:-.055em;max-width:740px;margin:0}.section-lead p{font-size:18px;line-height:1.48;color:var(--muted);max-width:350px;margin:0 0 7px}.service-group{padding-top:43px;border-top:2px solid #161616;margin-bottom:60px}.service-group:last-of-type{margin-bottom:0}.group-heading{display:flex;justify-content:space-between;gap:30px;align-items:flex-start;margin-bottom:30px}.group-heading h3{font-size:clamp(31px,3.5vw,44px);line-height:1.1;letter-spacing:-.045em;margin:13px 0 9px}.group-heading p{font-size:15px;color:var(--muted);margin:0}.group-number{font-size:11px;font-weight:850;color:var(--red);letter-spacing:.11em}.group-count{font-size:11px;letter-spacing:.09em;font-weight:800;color:#777;margin-top:3px;white-space:nowrap}.service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.service-card{min-height:142px;border:1px solid #dddddb;background:#fff;display:flex;gap:19px;align-items:flex-start;padding:24px 23px;transition:background .2s,border-color .2s,transform .2s}.service-card:hover{background:#fff4f2;border-color:#ffb6ae;transform:translateY(-2px)}.service-icon{background:#ffeded;width:56px;height:56px;min-width:56px;border-radius:12px;display:grid;place-items:center;color:#db2e35}.service-icon svg{height:32px;width:32px}.service-content{display:flex;flex-direction:column;gap:8px;min-width:0}.service-content strong{font-size:21px;line-height:1.15;letter-spacing:-.035em}.service-content span{color:var(--muted);font-size:14px;line-height:1.46;max-width:350px}.service-arrow{font-size:23px;margin-left:auto;line-height:1.1;font-weight:300}.no-results{display:none;padding:40px;text-align:center;color:var(--muted);border:1px dashed #bbb}
+.vision{background:#f4f1ec;padding:108px 0 110px;position:relative;overflow:hidden}.vision::before{content:"";position:absolute;width:350px;height:350px;border:75px solid #ffdddb88;border-radius:50%;right:-230px;top:-210px}.vision-main{display:grid;grid-template-columns:1.05fr .95fr;align-items:start;gap:110px}.vision .eyebrow{color:var(--red);margin-bottom:26px}.vision h2{font-size:clamp(43px,4.8vw,65px);line-height:1.06;letter-spacing:-.06em;max-width:700px;margin-bottom:24px}.vision-text p{font-size:18px;line-height:1.55;max-width:555px;color:#474747}.vision-values{border-top:2px solid #161616}.value{display:grid;grid-template-columns:45px 1fr;gap:16px;padding:19px 0 21px;border-bottom:1px solid #cccac6}.value b{color:var(--red);font-size:13px}.value h3{font-size:18px;letter-spacing:-.03em;margin:0 0 5px}.value p{margin:0;font-size:14px;line-height:1.48;color:var(--muted)}
+.heading-row{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:37px}.heading-row h2{font-size:clamp(43px,5vw,68px);line-height:1.05;letter-spacing:-.055em;margin:10px 0 0}.link-line{font-weight:800;font-size:14px;display:inline-flex;align-items:center;gap:8px;border-bottom:2px solid var(--ink);padding-bottom:6px;white-space:nowrap}.link-line:hover{border-bottom-color:var(--red);color:var(--red)}
+.news{background:#181818;color:#fff;padding:100px 0 110px}.news .heading-row{margin-bottom:33px}.news .eyebrow{color:#ff8682}.news .link-line{border-bottom-color:white}.news-list{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.news-item{border-top:1px solid #5d5d5d;padding:26px 0 12px;display:flex;flex-direction:column;min-height:238px}.news-item small{letter-spacing:.14em;text-transform:uppercase;color:#ff9e98;font-size:11px;font-weight:800}.news-item h3{font-size:23px;line-height:1.26;letter-spacing:-.03em;margin:21px 0 20px;max-width:365px}.news-item .news-arrow{color:#fff;font-size:24px;margin-top:auto}.news-item:hover h3{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.cta{padding:90px 0;background:#e93b41;color:white;overflow:hidden}.cta-inner{display:grid;grid-template-columns:1fr auto;align-items:center;gap:40px}.cta h2{font-size:clamp(42px,5vw,64px);line-height:1.07;letter-spacing:-.055em;margin:0 0 12px}.cta p{font-size:17px;line-height:1.5;margin:0;color:#fff7f6}.btn-white{color:#191919;background:white;min-width:195px}.btn-white:hover{background:#ffe8e6}
+.footer{padding:60px 0 28px}.footer-top{display:grid;grid-template-columns:1.35fr repeat(3,1fr);gap:48px;padding-bottom:70px}.footer-logo img{width:155px}.footer-blurb{max-width:250px;color:#666;line-height:1.5;font-size:13px;margin-top:20px}.footer-col h4{margin:0 0 21px;font-size:13px}.footer-col a{display:block;color:#555;font-size:13px;margin:0 0 15px}.footer-col a:hover{text-decoration:underline}.footer-bottom{border-top:1px solid #e1e1e1;padding-top:24px;display:flex;justify-content:space-between;gap:25px;font-size:11px;color:#858585}.footer-bottom span:last-child{max-width:650px;text-align:right}
+@media(max-width:1080px){.wrap{width:min(var(--max),calc(100% - 64px))}.hero-grid{grid-template-columns:1.15fr .85fr}.hero h1{font-size:clamp(56px,7vw,83px)}.hero-art svg{width:600px;right:-220px}.vision-main{gap:52px}.service-content strong{font-size:20px}.nav-links{gap:22px}}
+@media(max-width:760px){.wrap{width:calc(100% - 38px)}.topbar{height:72px}.nav-inner{gap:15px}.logo img{width:129px}.mobile-menu{display:grid}.nav-links{position:absolute;display:none;flex-direction:column;align-items:stretch;gap:0;top:72px;left:0;right:0;background:white;padding:15px 24px 22px;box-shadow:0 14px 22px #0002;margin:0}.nav-links.open{display:flex}.nav-links a{padding:15px 5px;border-bottom:1px solid #eee}.nav-tools{margin-left:auto}.nav-icon{width:39px;height:39px}.search-panel{top:72px}.search-control input{font-size:19px}.hero{min-height:610px;clip-path:polygon(0 0,100% 0,100% 97%,45% 97%,45% 100%,0 100%)}.hero-grid{display:block;min-height:610px}.hero-content{padding:75px 0 145px}.hero h1{font-size:clamp(52px,11vw,76px);max-width:680px;margin-top:28px}.hero p{font-size:17px;max-width:520px}.hero-art{position:absolute;top:215px;right:0;bottom:0;left:45%;opacity:.33;pointer-events:none}.hero-art svg{width:510px;top:0;right:-210px}.orbit-caption{display:none}.services{padding:75px 0}.section-lead{display:block;padding-bottom:45px}.section-lead h2{font-size:clamp(42px,9vw,58px)}.section-lead p{margin-top:24px;font-size:16px}.service-grid{grid-template-columns:1fr}.service-group{padding-top:30px;margin-bottom:47px}.service-card{min-height:120px;padding:19px 16px}.group-heading h3{font-size:34px}.service-icon{width:48px;height:48px;min-width:48px}.service-icon svg{width:27px;height:27px}.service-content strong{font-size:20px}.service-content span{font-size:13px}.vision{padding:75px 0}.vision-main{grid-template-columns:1fr;gap:35px}.vision h2{font-size:44px}.vision-text p{font-size:16px}.heading-row{align-items:start;flex-direction:column;gap:25px}.heading-row h2{font-size:47px}.news{padding:75px 0}.news-list{grid-template-columns:1fr}.news-item{min-height:auto;padding-bottom:30px}.news-item h3{max-width:100%;font-size:23px}.cta{padding:75px 0}.cta-inner{grid-template-columns:1fr}.cta h2{font-size:47px}.cta p{font-size:16px}.btn-white{justify-self:start}.footer-top{grid-template-columns:repeat(2,1fr);gap:32px 18px;padding-bottom:35px}.footer-top .footer-brand{grid-column:1/-1}.footer-bottom{display:block}.footer-bottom span{display:block}.footer-bottom span:last-child{text-align:left;margin-top:9px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+/* Services use the horizontal, hairline-ruled rows from the supplied index.html reference. */
+.svc{list-style:none;margin:5px 0 0;padding:0;border-top:1px solid #dedad6}
+.svc li{border-bottom:1px solid #dedad6}
+.svc a{display:grid;grid-template-columns:34px minmax(170px,1.05fr) minmax(0,1.75fr) 28px;gap:22px;align-items:center;padding:20px 7px;text-decoration:none;transition:background .15s ease}
+.svc a:hover{background:#FAF6F4}.svc a:hover .svc-name{color:var(--red)}
+.svc a:hover .arrow{transform:translateX(5px);color:var(--red)}
+.svc-ico{color:var(--red);display:flex;align-items:center;justify-content:center}
+.svc-name{font-weight:800;font-size:20px;letter-spacing:-.025em;line-height:1.14;min-width:0}
+.svc-desc{color:var(--muted);font-size:15px;min-width:0;line-height:1.5}
+.svc .arrow{color:#343434;display:flex;justify-content:flex-end;transition:transform .18s ease,color .18s ease}
+/* Distinguish the one flagship event without restructuring the News section. */
+.news-event-feature{background:#173C42;border-top-color:#EF6C66;padding:23px 25px 21px;min-height:238px}
+.news-event-feature small{color:#ffc4bd}.news-event-feature h3{font-size:27px;margin:20px 0 10px;max-width:330px}
+.news-event-feature p{font-size:14px;line-height:1.45;color:#d4e5e7;margin:0 0 19px}
+.news-event-feature .news-arrow{font-size:14px;font-weight:800;text-decoration:underline;text-underline-offset:5px}
+/* Keep the original hero's sizing/placement, replacing only the illustration content. */
+.hero-art svg.us-network-map{width:780px;height:auto;top:48px;right:-180px;overflow:visible}
+@media(max-width:1080px){.hero-art svg.us-network-map{width:720px;right:-225px;top:90px}}
+@media(max-width:760px){.svc a{grid-template-columns:30px minmax(0,1fr) 24px;column-gap:15px;row-gap:8px;padding:18px 7px}
+  .svc-ico{grid-row:1/3}.svc-name{grid-column:2;font-size:19px}.svc-desc{grid-column:2/4;font-size:14px}.svc .arrow{grid-column:3;grid-row:1}
+  .hero-art svg.us-network-map{width:640px;right:-225px;top:145px}
+  .news-event-feature{min-height:240px}}
+
+/* ===================================================================
+   GET ENGAGED
+   Not services — the ways people take part. Deliberately a different
+   shape from the hairline service rows so it never reads as "more
+   services": a warm band, a dark anchor card, four companions.
+   =================================================================== */
+.engage{background:#FFF1EE;padding:94px 0 100px;position:relative;overflow:hidden}
+.engage::before{content:"";position:absolute;width:300px;height:300px;border:68px solid #FFD9D3;border-radius:50%;left:-185px;bottom:-160px;opacity:.75}
+.engage .wrap{position:relative;z-index:1}
+.engage .eyebrow{color:var(--red)}
+.engage-head{align-items:flex-end;margin-bottom:0}
+.engage-head h2{font-size:clamp(40px,4.7vw,63px);line-height:1.06;letter-spacing:-.055em;margin:14px 0 0;max-width:620px}
+.engage-lead{font-size:17px;line-height:1.5;color:#6b5450;max-width:370px;margin:0 0 8px}
+.engage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.engage-card{background:#fff;border:1px solid #F3DCD7;padding:30px 30px 27px;display:flex;flex-direction:column;min-height:252px;
+  transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s ease,border-color .35s ease}
+.engage-card:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(167,55,50,.15);border-color:var(--red)}
+.engage-ico{color:var(--red);display:block;transition:transform .4s cubic-bezier(.2,.7,.3,1)}
+.engage-card:hover .engage-ico{transform:translateY(-3px) scale(1.1)}
+.engage-card h3{font-size:23px;line-height:1.16;letter-spacing:-.035em;margin:26px 0 11px;max-width:330px}
+.engage-card p{font-size:15px;line-height:1.5;color:var(--muted);margin:0 0 26px;max-width:380px}
+.engage-go{font-weight:800;font-size:14px;display:inline-flex;align-items:center;gap:8px;margin-top:auto}
+.engage-card:hover .engage-go{color:var(--red)}
+.engage-card:hover .engage-go span{transform:translate(3px,-3px)}
+.engage-go span{display:inline-block;transition:transform .25s cubic-bezier(.2,.7,.3,1)}
+
+/* The anchor card carries the section's weight. */
+.engage-card.is-lead{grid-column:span 2;background:#151515;border-color:#151515;color:#fff;min-height:268px}
+.engage-card.is-lead:hover{box-shadow:0 22px 50px rgba(0,0,0,.28);border-color:#151515}
+.engage-card.is-lead .engage-ico{color:#FF8E86}
+.engage-card.is-lead h3{font-size:32px;letter-spacing:-.04em;max-width:430px;margin-top:30px}
+.engage-card.is-lead p{color:#c9c6c4;max-width:470px;font-size:16px}
+.engage-card.is-lead:hover .engage-go{color:#FF8E86}
+
+
+@media(max-width:1080px){
+  .engage-grid{grid-template-columns:repeat(2,1fr)}
+  .engage-card.is-lead{grid-column:span 2}
+  .engage-card h3{font-size:21px}
+}
+@media(max-width:760px){
+  .engage{padding:70px 0 76px}
+  .engage-head{display:block}
+  .engage-head h2{margin-bottom:18px}
+  .engage-lead{max-width:none;margin-bottom:0}
+  .engage-grid{grid-template-columns:1fr;margin-top:34px}
+  .engage-card,.engage-card.is-lead{grid-column:span 1;min-height:0;padding:26px 24px 24px}
+  .engage-card.is-lead h3{font-size:26px}
+}
+
+/* ===================================================================
+   EVENT PROMOTION
+   Registration for the 2027 Summit is not open yet ("Register Coming
+   Soon" on the event site), so every call to action here is a
+   save-the-date, never a register.
+   =================================================================== */
+
+/* --- Announcement ribbon, above the nav --- */
+.ribbon{background:#151515;color:#fff;border-bottom:1px solid #2b2b2b;position:relative}
+.ribbon[hidden]{display:none}
+.ribbon-inner{display:flex;align-items:center;gap:20px;min-height:46px;padding:7px 0}
+.ribbon-text{margin:0;display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:13.5px;line-height:1.35}
+.ribbon-tag{background:var(--red);color:#fff;font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:4px 9px;white-space:nowrap}
+.ribbon-text strong{font-weight:800;letter-spacing:-.012em}
+.ribbon-meta{color:#b6b2b0;margin:0;font-size:13.5px}
+.ribbon-cta{margin-left:auto;font-weight:800;font-size:13.5px;white-space:nowrap;border-bottom:2px solid #6d6d6d;padding-bottom:3px;display:inline-flex;gap:8px;align-items:center}
+.ribbon-cta:hover{border-bottom-color:#fff}
+.ribbon-cta span{display:inline-block;transition:transform .25s cubic-bezier(.2,.7,.3,1)}
+.ribbon-cta:hover span{transform:translate(3px,-3px)}
+.ribbon-close{background:none;border:0;color:#8d8987;font-size:13px;line-height:1;padding:7px;margin-right:-7px}
+.ribbon-close:hover{color:#fff}
+@media(max-width:760px){
+  /* Two tight lines: title on top, date and the CTA sharing the second. */
+  .ribbon-inner{display:grid;grid-template-columns:1fr auto;align-items:center;
+    grid-template-areas:"title title" "meta cta";gap:3px 12px;padding:9px 24px 10px 0;min-height:0}
+  .ribbon-text{grid-area:title;display:block;font-size:12.5px;line-height:1.3}
+  .ribbon-tag{display:inline-block;margin-right:7px;padding:3px 7px;font-size:9.5px;letter-spacing:.12em;vertical-align:1px}
+  .ribbon-text strong{display:inline}
+  .ribbon-meta{grid-area:meta;font-size:11.5px}
+  .ribbon-cta{grid-area:cta;margin-left:0;font-size:12px;padding-bottom:2px}
+  .ribbon-close{position:absolute;right:2px;top:6px;margin:0;padding:5px}
+}
+@media(max-width:420px){
+  .ribbon-venue{display:none}
+  .ribbon-text{font-size:12px}
+  .ribbon-meta,.ribbon-cta{font-size:11px}
+}
+
+/* --- "Next up" callout inside the existing Events card --- */
+.engage-card.has-next p{margin-bottom:18px}
+.engage-next{display:block;background:#FFF4F1;border:1px solid #F6DED8;border-left:3px solid var(--red);padding:14px 16px 13px;margin:0 0 20px;transition:background .3s ease,border-color .3s ease}
+.engage-next:hover{background:#FFE7E1}
+.engage-next-tag{display:block;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:7px}
+.engage-next strong{display:block;font-size:15px;line-height:1.25;letter-spacing:-.022em;margin-bottom:5px}
+.engage-next-meta{display:block;font-size:13px;line-height:1.4;color:var(--muted);margin-bottom:10px}
+.engage-next-go{font-size:12.5px;font-weight:800;display:inline-flex;align-items:center;gap:6px;color:var(--red)}
+.engage-next-go span{display:inline-block;transition:transform .25s cubic-bezier(.2,.7,.3,1)}
+.engage-next:hover .engage-next-go span{transform:translate(3px,-3px)}
+
+/* --- The Summit's host city, marked on the hero map --- */
+.network-node.is-event{fill:#fff;stroke:#FF6A62;stroke-width:2.2}
+.map-hit-link{cursor:pointer}
+.map-hit-link:focus{outline:none}
+.map-hit-link:focus-visible .node-ring{opacity:1;transform:scale(1)}
+.event-beacon{fill:none;stroke:#fff;stroke-width:1.5;transform-box:fill-box;transform-origin:50% 50%;pointer-events:none;
+  animation:event-beacon 3.2s cubic-bezier(.15,.6,.4,1) infinite}
+.event-beacon.b2{animation-delay:1.6s}
+@keyframes event-beacon{0%{transform:scale(.55);opacity:.85}70%{opacity:0}100%{transform:scale(3.5);opacity:0}}
+.us-network-map.is-paused .event-beacon{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.event-beacon{display:none}}
+
+/* ===================================================================
+   INTERACTIVE LAYER
+   Live fiber map + motion system. All of it degrades to the static
+   concept when JS is off or prefers-reduced-motion is set.
+   =================================================================== */
+
+/* --- Scroll progress + sticky header state --- */
+.scroll-progress{position:fixed;left:0;top:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,#ED3339,#FF9A8E);z-index:60;pointer-events:none;will-change:transform}
+.topbar{transition:box-shadow .3s ease,border-color .3s ease}
+.topbar.is-stuck{box-shadow:0 12px 34px rgba(0,0,0,.09);border-bottom-color:transparent}
+.nav-links a{position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;background:var(--red);transform:scaleX(0);transform-origin:0 50%;transition:transform .3s cubic-bezier(.2,.7,.3,1)}
+.nav-links a.is-current::after{transform:scaleX(1)}
+
+/* --- Reveal on scroll --- */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s cubic-bezier(.2,.65,.3,1),transform .75s cubic-bezier(.2,.65,.3,1);transition-delay:var(--d,0ms);will-change:opacity,transform}
+.reveal.in{opacity:1;transform:none}
+.hero-content.reveal{transform:translateY(16px)}
+
+/* --- Buttons and links: directional nudge --- */
+.btn span,.link-line span,.news-arrow span{display:inline-block;transition:transform .25s cubic-bezier(.2,.7,.3,1)}
+.btn:hover span[aria-hidden]{transform:translate(3px,3px)}
+.btn-ghost:hover span[aria-hidden],.link-line:hover span{transform:translate(3px,-3px)}
+.btn-red,.btn-white{position:relative;overflow:hidden}
+.btn-red::after,.btn-white::after{content:"";position:absolute;inset:0;background:radial-gradient(260px 120px at var(--mx,50%) var(--my,50%),rgba(255,255,255,.22),transparent 65%);opacity:0;transition:opacity .3s}
+.btn-red:hover::after,.btn-white:hover::after{opacity:1}
+.hero-actions .btn-ghost:hover{border-bottom-color:#fff}
+
+/* --- Services: animated accent rail + icon lift --- */
+.svc a{position:relative}
+.svc a::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--red);transform:scaleY(0);transform-origin:50% 100%;transition:transform .3s cubic-bezier(.2,.7,.3,1)}
+.svc a:hover::before,.svc a:focus-visible::before{transform:scaleY(1)}
+.svc-ico svg{transition:transform .35s cubic-bezier(.2,.7,.3,1)}
+.svc a:hover .svc-ico svg{transform:scale(1.14) rotate(-6deg)}
+.svc a:hover .svc-desc{color:#3d3d3d}
+
+
+/* --- News + values --- */
+.news-item{transition:transform .35s cubic-bezier(.2,.7,.3,1),border-top-color .35s ease}
+.news-item:hover{transform:translateY(-7px)}
+.news-item:not(.news-event-feature):hover{border-top-color:var(--red)}
+.news-event-feature:hover{transform:translateY(-7px)}
+.value{transition:transform .3s cubic-bezier(.2,.7,.3,1)}
+.value:hover{transform:translateX(6px)}
+.value b{transition:color .3s ease}
+.value:hover b{color:var(--red)}
+
+/* ===================== THE NETWORK MAP ===================== */
+.us-network-map{--px:0;--py:0;transform:translate3d(calc(var(--px) * 13px),calc(var(--py) * 9px),0);transition:transform 1.1s cubic-bezier(.2,.7,.3,1)}
+.map-stage{cursor:crosshair}
+
+/* base fiber */
+.map-links path{transition:stroke-opacity .35s ease,stroke-width .35s ease}
+.us-network-map.is-active .map-links path{stroke-opacity:.14}
+.us-network-map.is-active .map-links path.lit{stroke-opacity:1;stroke-width:2.8}
+
+/* light travelling through the fiber */
+.map-flow path{fill:none;stroke:#FFE3D7;stroke-width:2.4;stroke-linecap:round;
+  stroke-dasharray:var(--d,24px) var(--len,1000px);
+  stroke-dashoffset:calc(var(--len,1000px) + var(--d,24px));
+  animation:fiber-flow var(--dur,5s) linear var(--delay,0s) infinite}
+@keyframes fiber-flow{
+  from{stroke-dashoffset:calc(var(--len,1000px) + var(--d,24px));opacity:0}
+  6%{opacity:1}
+  88%{opacity:1}
+  to{stroke-dashoffset:0;opacity:0}
+}
+.us-network-map.is-paused .map-flow path{animation-play-state:paused}
+.us-network-map.is-active .map-flow path{stroke:#8a4744}
+.us-network-map.is-active .map-flow path.lit{stroke:#FFF4EC;stroke-width:3.4}
+
+/* nodes */
+.network-node,.map-nodes circle{transform-box:fill-box;transform-origin:50% 50%}
+.network-node{transition:transform .3s cubic-bezier(.2,.7,.3,1),fill .3s ease}
+.map-hit{fill:transparent;stroke:transparent;cursor:pointer}
+.map-hit:focus{outline:none}
+.map-hit:focus-visible + .node-ring,.map-hit.on + .node-ring{opacity:1;transform:scale(1)}
+.node-ring{fill:none;stroke:#FFD2C9;stroke-width:1.4;opacity:0;transform:scale(.45);transform-box:fill-box;transform-origin:50% 50%;transition:opacity .3s ease,transform .45s cubic-bezier(.2,.7,.3,1);pointer-events:none}
+.node-beacon{fill:none;stroke:#FF6A62;stroke-width:1.6;transform-box:fill-box;transform-origin:50% 50%;pointer-events:none;animation:beacon var(--bdur,3.6s) ease-out var(--bdelay,0s) infinite}
+@keyframes beacon{0%{transform:scale(.6);opacity:.55}70%{opacity:0}100%{transform:scale(2.6);opacity:0}}
+.us-network-map.is-paused .node-beacon{animation-play-state:paused}
+.network-node.lit{transform:scale(1.5);fill:#FFD0C6}
+.us-network-map.is-active .node-beacon{opacity:0}
+
+/* tooltip */
+.map-tip{pointer-events:none;opacity:0;transition:opacity .22s ease}
+.map-tip.on{opacity:1}
+.map-tip rect{fill:#141414;fill-opacity:.95;stroke:#F3544F;stroke-opacity:.55;stroke-width:1}
+.map-tip .tip-city{fill:#fff;font:800 14px Inter,Arial,sans-serif;letter-spacing:-.02em}
+.map-tip .tip-role{fill:#FFB0A6;font:700 10.5px Inter,Arial,sans-serif;letter-spacing:.11em;text-transform:uppercase}
+
+/* caption + control */
+.map-caption{fill:#F7A39B;font:800 11px Inter,Arial,sans-serif;letter-spacing:2.5px;transition:fill .25s ease}
+.map-caption.on{fill:#FFD9D2}
+.map-toggle{cursor:pointer}
+.map-toggle rect{fill:#ffffff;fill-opacity:.07;stroke:#FF8E86;stroke-opacity:.45;stroke-width:1;transition:fill-opacity .25s ease}
+.map-toggle:hover rect{fill-opacity:.16}
+.map-toggle text{fill:#FFC6BE;font:800 9.5px Inter,Arial,sans-serif;letter-spacing:1.6px;pointer-events:none}
+.map-toggle:focus-visible rect{stroke:#fff;stroke-opacity:1}
+
+@media(max-width:760px){
+  .map-hit{display:none}
+  .map-toggle{display:none}
+  .scroll-progress{height:2px}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1!important;transform:none!important}
+  .map-flow{display:none}
+  .node-beacon{display:none}
+  .us-network-map{transform:none!important}
+}
+
+</style></head><body>
+<a class="sr-only" href="#services">Skip to services</a>
+<div class="ribbon" id="event-ribbon"><div class="wrap ribbon-inner"><p class="ribbon-text"><span class="ribbon-tag">Next up</span> <strong>2027 Internet2 Global Summit</strong></p><p class="ribbon-meta">April 5–8, 2027 · Philadelphia<span class="ribbon-venue">, Pennsylvania</span></p><a class="ribbon-cta" href="https://events.internet2.edu/website/96909/" target="_blank" rel="noopener noreferrer">Save the date <span aria-hidden="true">↗</span></a><button class="ribbon-close" id="ribbon-close" type="button" aria-label="Dismiss this announcement">✕</button></div></div>
+<header class="topbar" id="top"><div class="wrap nav-inner"><a href="#top" class="logo" aria-label="Internet2 homepage"><img alt="Internet2" src="data:image/png;base64,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"></a><nav class="nav-links" id="navigation" aria-label="Primary navigation"><a href="#services">Services</a><a href="#engage">Community</a><a href="#about">About</a><a href="https://internet2.edu/events/" target="_blank" rel="noopener noreferrer">Events</a><a href="#news">News</a><a href="https://internet2.edu/contact/" target="_blank" rel="noopener noreferrer">Support</a></nav><div class="nav-tools"><button class="nav-icon" id="search-toggle" aria-label="Open service search" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg></button><button class="nav-icon mobile-menu" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button></div></div>
+<div class="search-panel" id="search-panel"><div class="wrap"><label for="service-search" class="sr-only">Search our services</label><div class="search-control"><svg aria-hidden="true" width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input id="service-search" type="search" placeholder="Search Internet2 services…" autocomplete="off"><button class="nav-icon" id="search-close" aria-label="Close search">✕</button></div><div class="search-hint">Type to filter the ten services below. Press Escape to close.</div></div></div>
+</header>
+<main>
+<section class="hero" aria-labelledby="main-title"><div class="wrap hero-grid"><div class="hero-content"><span class="eyebrow"><i class="red-dash"></i> Shared infrastructure. Collective possibility.</span><h1 id="main-title">The future of discovery is <em>built together.</em></h1><p>Internet2 connects people, institutions, and possibilities through secure digital infrastructure, shared technology services, and the collective expertise of the research and education community.</p><div class="hero-actions"><a class="btn btn-red" href="https://internet2.edu/contact/" target="_blank" rel="noopener noreferrer">Contact us <span aria-hidden="true">↗</span></a><a class="btn btn-ghost" href="#services">Explore our services <span aria-hidden="true">↘</span></a><a class="btn btn-ghost" href="#engage">Get engaged <span aria-hidden="true">↘</span></a></div></div>
+<div class="hero-art"><svg class="us-network-map map-stage" viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Interactive map of the Internet2 national backbone. Hover or tab through a city to trace the fiber paths it carries.">
+<defs>
+  <linearGradient id="map-lines" x1="50" y1="0" x2="760" y2="430" gradientUnits="userSpaceOnUse"><stop stop-color="#FFB5AE"/><stop offset="1" stop-color="#ED3339"/></linearGradient>
+  <radialGradient id="map-haze"><stop stop-color="#FF4F52" stop-opacity=".20"/><stop offset="1" stop-color="#FF4F52" stop-opacity="0"/></radialGradient>
+  <pattern id="map-dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".7" fill="#D44849" opacity=".4"/></pattern>
+  <clipPath id="contiguous-us"><path d="M96.2,45.3 L133.2,45.4 L145.5,45.4 L183.4,45.4 L220.1,45.4 L257.5,45.4 L294.8,45.4 L337.2,45.3 L379.8,45.3 L405.5,45.4 L405.6,40.2 L409.8,40.2 L412.0,47.5 L415.9,49.7 L424.5,50.6 L437.3,52.7 L449.3,56.8 L459.4,55.1 L474.7,58.6 L478.8,58.4 L489.9,54.7 L501.6,59.5 L513.8,64.7 L523.9,69.1 L533.5,73.4 L534.7,76.9 L537.7,78.2 L536.9,79.5 L540.3,79.9 L542.7,78.6 L543.3,81.7 L545.8,83.8 L549.2,83.8 L551.1,85.5 L549.5,87.8 L562.5,94.1 L565.1,106.2 L567.6,117.8 L564.0,125.7 L558.1,133.1 L555.4,137.7 L555.1,139.1 L556.5,141.0 L560.8,143.1 L563.9,143.1 L578.3,136.0 L591.2,133.9 L607.5,127.3 L607.7,125.9 L606.6,121.8 L604.6,119.2 L610.2,117.1 L622.4,117.1 L633.8,117.1 L637.8,111.9 L639.4,110.8 L652.5,101.2 L658.2,98.7 L677.1,98.7 L700.0,98.6 L701.3,95.3 L705.2,94.7 L710.5,92.6 L715.0,86.5 L718.8,76.1 L728.2,66.1 L732.4,69.6 L740.7,67.3 L746.3,71.2 L746.2,89.4 L754.4,96.9 L756.5,101.3 L743.2,107.8 L730.5,112.4 L717.3,116.3 L710.7,124.2 L708.6,127.2 L708.5,134.3 L712.6,141.4 L717.8,141.7 L716.4,136.9 L720.2,139.8 L719.2,143.6 L710.8,145.8 L704.8,145.5 L695.6,147.9 L690.2,148.5 L682.9,149.2 L672.6,153.1 L690.8,150.6 L694.5,153.1 L677.1,157.1 L669.2,157.1 L669.5,155.5 L665.8,159.2 L669.4,159.8 L666.7,169.4 L657.7,179.7 L656.7,176.2 L654.0,175.5 L649.9,172.2 L652.5,179.4 L655.6,181.8 L655.8,186.8 L651.8,192.0 L644.8,202.7 L643.7,202.1 L647.5,193.0 L641.2,187.9 L639.7,176.8 L637.3,182.6 L639.9,191.1 L631.7,189.0 L640.3,193.3 L640.8,206.0 L644.4,206.9 L645.7,211.5 L647.4,224.9 L639.5,234.8 L626.6,238.8 L618.5,246.6 L612.2,247.5 L605.9,252.4 L604.2,256.8 L590.5,265.5 L583.5,271.9 L577.6,279.8 L575.7,289.3 L577.9,298.5 L582.0,309.9 L587.6,319.4 L587.7,325.2 L593.5,340.7 L593.2,349.7 L592.6,354.8 L589.5,363.0 L585.8,364.7 L579.7,363.1 L577.7,357.2 L573.0,354.1 L566.4,342.7 L560.6,332.4 L558.7,327.2 L561.3,318.4 L557.8,311.0 L548.1,299.8 L543.2,297.8 L530.6,303.9 L528.4,303.2 L522.4,297.0 L514.6,293.7 L500.5,295.3 L489.4,293.9 L480.0,294.8 L474.8,296.9 L477.0,300.4 L476.8,305.8 L479.5,308.5 L477.1,310.2 L472.5,308.2 L467.8,310.8 L458.8,310.4 L449.5,303.3 L438.6,305.0 L429.6,301.9 L421.8,302.8 L411.4,305.9 L400.0,315.8 L387.7,321.6 L380.9,328.0 L378.0,334.0 L377.9,343.2 L378.5,349.6 L380.9,354.1 L376.0,354.5 L367.2,351.6 L357.5,347.5 L354.0,341.2 L351.2,331.8 L343.9,324.2 L339.6,316.4 L333.3,307.3 L324.6,301.9 L314.4,302.2 L306.5,312.8 L296.2,308.7 L289.8,304.7 L286.7,297.4 L282.5,290.4 L275.1,284.5 L268.8,280.3 L264.2,275.6 L242.7,275.6 L242.6,281.1 L232.8,281.1 L208.0,281.2 L179.6,271.8 L160.8,265.3 L162.0,262.7 L146.2,264.1 L132.0,265.2 L129.9,258.3 L121.8,250.7 L116.0,249.1 L114.7,245.2 L107.7,244.6 L103.2,240.9 L91.7,239.6 L88.5,237.5 L87.0,230.2 L74.9,216.7 L64.5,198.2 L65.0,195.1 L59.5,190.7 L49.8,179.5 L48.1,168.6 L41.5,161.3 L44.2,150.3 L43.8,138.8 L39.8,128.6 L44.7,116.0 L46.2,103.9 L47.7,91.8 L45.5,73.9 L41.5,62.4 L37.9,56.2 L39.4,53.6 L57.4,58.2 L64.0,70.8 L67.1,67.2 L65.1,56.3 L60.9,45.3 L96.2,45.3 Z"/></clipPath>
+</defs>
+<ellipse cx="430" cy="246" rx="380" ry="205" fill="url(#map-haze)"/>
+<path d="M96.2,45.3 L133.2,45.4 L145.5,45.4 L183.4,45.4 L220.1,45.4 L257.5,45.4 L294.8,45.4 L337.2,45.3 L379.8,45.3 L405.5,45.4 L405.6,40.2 L409.8,40.2 L412.0,47.5 L415.9,49.7 L424.5,50.6 L437.3,52.7 L449.3,56.8 L459.4,55.1 L474.7,58.6 L478.8,58.4 L489.9,54.7 L501.6,59.5 L513.8,64.7 L523.9,69.1 L533.5,73.4 L534.7,76.9 L537.7,78.2 L536.9,79.5 L540.3,79.9 L542.7,78.6 L543.3,81.7 L545.8,83.8 L549.2,83.8 L551.1,85.5 L549.5,87.8 L562.5,94.1 L565.1,106.2 L567.6,117.8 L564.0,125.7 L558.1,133.1 L555.4,137.7 L555.1,139.1 L556.5,141.0 L560.8,143.1 L563.9,143.1 L578.3,136.0 L591.2,133.9 L607.5,127.3 L607.7,125.9 L606.6,121.8 L604.6,119.2 L610.2,117.1 L622.4,117.1 L633.8,117.1 L637.8,111.9 L639.4,110.8 L652.5,101.2 L658.2,98.7 L677.1,98.7 L700.0,98.6 L701.3,95.3 L705.2,94.7 L710.5,92.6 L715.0,86.5 L718.8,76.1 L728.2,66.1 L732.4,69.6 L740.7,67.3 L746.3,71.2 L746.2,89.4 L754.4,96.9 L756.5,101.3 L743.2,107.8 L730.5,112.4 L717.3,116.3 L710.7,124.2 L708.6,127.2 L708.5,134.3 L712.6,141.4 L717.8,141.7 L716.4,136.9 L720.2,139.8 L719.2,143.6 L710.8,145.8 L704.8,145.5 L695.6,147.9 L690.2,148.5 L682.9,149.2 L672.6,153.1 L690.8,150.6 L694.5,153.1 L677.1,157.1 L669.2,157.1 L669.5,155.5 L665.8,159.2 L669.4,159.8 L666.7,169.4 L657.7,179.7 L656.7,176.2 L654.0,175.5 L649.9,172.2 L652.5,179.4 L655.6,181.8 L655.8,186.8 L651.8,192.0 L644.8,202.7 L643.7,202.1 L647.5,193.0 L641.2,187.9 L639.7,176.8 L637.3,182.6 L639.9,191.1 L631.7,189.0 L640.3,193.3 L640.8,206.0 L644.4,206.9 L645.7,211.5 L647.4,224.9 L639.5,234.8 L626.6,238.8 L618.5,246.6 L612.2,247.5 L605.9,252.4 L604.2,256.8 L590.5,265.5 L583.5,271.9 L577.6,279.8 L575.7,289.3 L577.9,298.5 L582.0,309.9 L587.6,319.4 L587.7,325.2 L593.5,340.7 L593.2,349.7 L592.6,354.8 L589.5,363.0 L585.8,364.7 L579.7,363.1 L577.7,357.2 L573.0,354.1 L566.4,342.7 L560.6,332.4 L558.7,327.2 L561.3,318.4 L557.8,311.0 L548.1,299.8 L543.2,297.8 L530.6,303.9 L528.4,303.2 L522.4,297.0 L514.6,293.7 L500.5,295.3 L489.4,293.9 L480.0,294.8 L474.8,296.9 L477.0,300.4 L476.8,305.8 L479.5,308.5 L477.1,310.2 L472.5,308.2 L467.8,310.8 L458.8,310.4 L449.5,303.3 L438.6,305.0 L429.6,301.9 L421.8,302.8 L411.4,305.9 L400.0,315.8 L387.7,321.6 L380.9,328.0 L378.0,334.0 L377.9,343.2 L378.5,349.6 L380.9,354.1 L376.0,354.5 L367.2,351.6 L357.5,347.5 L354.0,341.2 L351.2,331.8 L343.9,324.2 L339.6,316.4 L333.3,307.3 L324.6,301.9 L314.4,302.2 L306.5,312.8 L296.2,308.7 L289.8,304.7 L286.7,297.4 L282.5,290.4 L275.1,284.5 L268.8,280.3 L264.2,275.6 L242.7,275.6 L242.6,281.1 L232.8,281.1 L208.0,281.2 L179.6,271.8 L160.8,265.3 L162.0,262.7 L146.2,264.1 L132.0,265.2 L129.9,258.3 L121.8,250.7 L116.0,249.1 L114.7,245.2 L107.7,244.6 L103.2,240.9 L91.7,239.6 L88.5,237.5 L87.0,230.2 L74.9,216.7 L64.5,198.2 L65.0,195.1 L59.5,190.7 L49.8,179.5 L48.1,168.6 L41.5,161.3 L44.2,150.3 L43.8,138.8 L39.8,128.6 L44.7,116.0 L46.2,103.9 L47.7,91.8 L45.5,73.9 L41.5,62.4 L37.9,56.2 L39.4,53.6 L57.4,58.2 L64.0,70.8 L67.1,67.2 L65.1,56.3 L60.9,45.3 L96.2,45.3 Z" fill="#6A252A" fill-opacity=".22" stroke="#EC6A66" stroke-width="1.4" stroke-opacity=".72"/>
+<path d="M96.2,45.3 L133.2,45.4 L145.5,45.4 L183.4,45.4 L220.1,45.4 L257.5,45.4 L294.8,45.4 L337.2,45.3 L379.8,45.3 L405.5,45.4 L405.6,40.2 L409.8,40.2 L412.0,47.5 L415.9,49.7 L424.5,50.6 L437.3,52.7 L449.3,56.8 L459.4,55.1 L474.7,58.6 L478.8,58.4 L489.9,54.7 L501.6,59.5 L513.8,64.7 L523.9,69.1 L533.5,73.4 L534.7,76.9 L537.7,78.2 L536.9,79.5 L540.3,79.9 L542.7,78.6 L543.3,81.7 L545.8,83.8 L549.2,83.8 L551.1,85.5 L549.5,87.8 L562.5,94.1 L565.1,106.2 L567.6,117.8 L564.0,125.7 L558.1,133.1 L555.4,137.7 L555.1,139.1 L556.5,141.0 L560.8,143.1 L563.9,143.1 L578.3,136.0 L591.2,133.9 L607.5,127.3 L607.7,125.9 L606.6,121.8 L604.6,119.2 L610.2,117.1 L622.4,117.1 L633.8,117.1 L637.8,111.9 L639.4,110.8 L652.5,101.2 L658.2,98.7 L677.1,98.7 L700.0,98.6 L701.3,95.3 L705.2,94.7 L710.5,92.6 L715.0,86.5 L718.8,76.1 L728.2,66.1 L732.4,69.6 L740.7,67.3 L746.3,71.2 L746.2,89.4 L754.4,96.9 L756.5,101.3 L743.2,107.8 L730.5,112.4 L717.3,116.3 L710.7,124.2 L708.6,127.2 L708.5,134.3 L712.6,141.4 L717.8,141.7 L716.4,136.9 L720.2,139.8 L719.2,143.6 L710.8,145.8 L704.8,145.5 L695.6,147.9 L690.2,148.5 L682.9,149.2 L672.6,153.1 L690.8,150.6 L694.5,153.1 L677.1,157.1 L669.2,157.1 L669.5,155.5 L665.8,159.2 L669.4,159.8 L666.7,169.4 L657.7,179.7 L656.7,176.2 L654.0,175.5 L649.9,172.2 L652.5,179.4 L655.6,181.8 L655.8,186.8 L651.8,192.0 L644.8,202.7 L643.7,202.1 L647.5,193.0 L641.2,187.9 L639.7,176.8 L637.3,182.6 L639.9,191.1 L631.7,189.0 L640.3,193.3 L640.8,206.0 L644.4,206.9 L645.7,211.5 L647.4,224.9 L639.5,234.8 L626.6,238.8 L618.5,246.6 L612.2,247.5 L605.9,252.4 L604.2,256.8 L590.5,265.5 L583.5,271.9 L577.6,279.8 L575.7,289.3 L577.9,298.5 L582.0,309.9 L587.6,319.4 L587.7,325.2 L593.5,340.7 L593.2,349.7 L592.6,354.8 L589.5,363.0 L585.8,364.7 L579.7,363.1 L577.7,357.2 L573.0,354.1 L566.4,342.7 L560.6,332.4 L558.7,327.2 L561.3,318.4 L557.8,311.0 L548.1,299.8 L543.2,297.8 L530.6,303.9 L528.4,303.2 L522.4,297.0 L514.6,293.7 L500.5,295.3 L489.4,293.9 L480.0,294.8 L474.8,296.9 L477.0,300.4 L476.8,305.8 L479.5,308.5 L477.1,310.2 L472.5,308.2 L467.8,310.8 L458.8,310.4 L449.5,303.3 L438.6,305.0 L429.6,301.9 L421.8,302.8 L411.4,305.9 L400.0,315.8 L387.7,321.6 L380.9,328.0 L378.0,334.0 L377.9,343.2 L378.5,349.6 L380.9,354.1 L376.0,354.5 L367.2,351.6 L357.5,347.5 L354.0,341.2 L351.2,331.8 L343.9,324.2 L339.6,316.4 L333.3,307.3 L324.6,301.9 L314.4,302.2 L306.5,312.8 L296.2,308.7 L289.8,304.7 L286.7,297.4 L282.5,290.4 L275.1,284.5 L268.8,280.3 L264.2,275.6 L242.7,275.6 L242.6,281.1 L232.8,281.1 L208.0,281.2 L179.6,271.8 L160.8,265.3 L162.0,262.7 L146.2,264.1 L132.0,265.2 L129.9,258.3 L121.8,250.7 L116.0,249.1 L114.7,245.2 L107.7,244.6 L103.2,240.9 L91.7,239.6 L88.5,237.5 L87.0,230.2 L74.9,216.7 L64.5,198.2 L65.0,195.1 L59.5,190.7 L49.8,179.5 L48.1,168.6 L41.5,161.3 L44.2,150.3 L43.8,138.8 L39.8,128.6 L44.7,116.0 L46.2,103.9 L47.7,91.8 L45.5,73.9 L41.5,62.4 L37.9,56.2 L39.4,53.6 L57.4,58.2 L64.0,70.8 L67.1,67.2 L65.1,56.3 L60.9,45.3 L96.2,45.3 Z" fill="url(#map-dots)" opacity=".6"/>
+<g class="map-links" stroke="url(#map-lines)" stroke-width="1.9" stroke-linecap="round" opacity=".88"><path d="M67.2 63.9 L62.9 91.8"/><path d="M62.9 91.8 L66.1 195.3"/><path d="M66.1 195.3 L118.2 244.9"/><path d="M118.2 244.9 L131.6 262.7"/><path d="M67.2 63.9 L197.2 155.4"/><path d="M66.1 195.3 L197.2 155.4"/><path d="M118.2 244.9 L195.0 252.9"/><path d="M197.2 155.4 L283.1 169.0"/><path d="M195.0 252.9 L262.5 231.2"/><path d="M262.5 231.2 L283.1 169.0"/><path d="M283.1 169.0 L412.7 177.5"/><path d="M283.1 169.0 L385.1 261.9"/><path d="M195.0 252.9 L385.1 261.9"/><path d="M385.1 261.9 L402.9 302.2"/><path d="M412.7 177.5 L499.3 140.4"/><path d="M412.7 177.5 L467.3 183.8"/><path d="M412.7 177.5 L385.1 261.9"/><path d="M429.0 99.0 L499.3 140.4"/><path d="M283.1 169.0 L429.0 99.0"/><path d="M499.3 140.4 L557.0 166.0"/><path d="M499.3 140.4 L594.4 159.6"/><path d="M467.3 183.8 L539.6 248.9"/><path d="M467.3 183.8 L499.3 140.4"/><path d="M402.9 302.2 L539.6 248.9"/><path d="M385.1 261.9 L539.6 248.9"/><path d="M539.6 248.9 L611.2 221.8"/><path d="M539.6 248.9 L591.9 355.6"/><path d="M611.2 221.8 L631.1 180.1"/><path d="M557.0 166.0 L631.1 180.1"/><path d="M594.4 159.6 L654.5 166.2"/><path d="M631.1 180.1 L654.5 166.2"/><path d="M654.5 166.2 L668.8 156.0"/><path d="M668.8 156.0 L705.6 134.0"/><path d="M499.3 140.4 L668.8 156.0"/><path d="M412.7 177.5 L539.6 248.9"/><path d="M66.1 195.3 L283.1 169.0"/></g>
+<g class="map-nodes" fill="#F34A4D" stroke="#FFB3AB" stroke-width="1.5"><circle cx="67.2" cy="63.9" r="6.5" class="network-node"/><circle cx="67.2" cy="63.9" r="2" fill="#fff"/><circle cx="62.9" cy="91.8" r="4" class="network-node"/><circle cx="66.1" cy="195.3" r="6.5" class="network-node"/><circle cx="66.1" cy="195.3" r="2" fill="#fff"/><circle cx="118.2" cy="244.9" r="6.5" class="network-node"/><circle cx="118.2" cy="244.9" r="2" fill="#fff"/><circle cx="131.6" cy="262.7" r="4" class="network-node"/><circle cx="195.0" cy="252.9" r="4" class="network-node"/><circle cx="197.2" cy="155.4" r="4" class="network-node"/><circle cx="283.1" cy="169.0" r="6.5" class="network-node"/><circle cx="283.1" cy="169.0" r="2" fill="#fff"/><circle cx="262.5" cy="231.2" r="4" class="network-node"/><circle cx="385.1" cy="261.9" r="6.5" class="network-node"/><circle cx="385.1" cy="261.9" r="2" fill="#fff"/><circle cx="402.9" cy="302.2" r="4" class="network-node"/><circle cx="412.7" cy="177.5" r="4" class="network-node"/><circle cx="429.0" cy="99.0" r="4" class="network-node"/><circle cx="499.3" cy="140.4" r="6.5" class="network-node"/><circle cx="499.3" cy="140.4" r="2" fill="#fff"/><circle cx="467.3" cy="183.8" r="4" class="network-node"/><circle cx="539.6" cy="248.9" r="6.5" class="network-node"/><circle cx="539.6" cy="248.9" r="2" fill="#fff"/><circle cx="591.9" cy="355.6" r="4" class="network-node"/><circle cx="611.2" cy="221.8" r="4" class="network-node"/><circle cx="631.1" cy="180.1" r="6.5" class="network-node"/><circle cx="631.1" cy="180.1" r="2" fill="#fff"/><circle cx="654.5" cy="166.2" r="4" class="network-node"/><circle cx="668.8" cy="156.0" r="6.5" class="network-node"/><circle cx="668.8" cy="156.0" r="2" fill="#fff"/><circle cx="705.6" cy="134.0" r="4" class="network-node"/><circle cx="557.0" cy="166.0" r="4" class="network-node"/><circle cx="594.4" cy="159.6" r="4" class="network-node"/></g>
+<g fill="none" stroke="#EA4A4E" stroke-width="1" opacity=".36" stroke-dasharray="2 11">
+<ellipse cx="395" cy="222" rx="344" ry="198"/><ellipse cx="395" cy="222" rx="284" ry="152"/>
+</g>
+<g fill="#F7A39B" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="11" letter-spacing="2.5" opacity=".88">
+<text x="86" y="428">CONNECTED ACROSS THE U.S. · HOVER TO TRACE A PATH</text>
+</g>
+</svg></div></div></section>
+<section class="services wrap" id="services"><div class="services-overline"><span>01</span><span style="width:25px;height:2px;background:var(--red)"></span> Discover our services</div><div class="section-lead"><h2>Everything you need to move discovery forward.</h2><p>Network, trust and identity, and cloud solutions—designed around the needs of research and education.</p></div>
+<ul class="svc">
+      <li><a href="https://internet2.edu/network/" target="_blank" rel="noopener noreferrer">
+        <span class="svc-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.8 2.6 15.2 0 18M12 3c-2.6 2.8-2.6 15.2 0 18"/></svg></span>
+        <span class="svc-name">Internet2 Network</span>
+        <span class="svc-desc">The national backbone purpose-built for research and education traffic, now carrying 1,600G+ of wavelength capability.</span>
+        <span class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+      </a></li>
+      <li><a href="https://internet2.edu/security/incommon-identity-and-access-management/" target="_blank" rel="noopener noreferrer">
+        <span class="svc-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5h5M18.5 5v9"/></svg></span>
+        <span class="svc-name">InCommon</span>
+        <span class="svc-desc">Single sign-on across more than 1,000 participating organizations, so your people reach what they need without a new password.</span>
+        <span class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+      </a></li>
+      <li><a href="https://incommon.org/eduroam/" target="_blank" rel="noopener noreferrer">
+        <span class="svc-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 8.5C5 6 8.4 4.7 12 4.7S19 6 22 8.5"/><path d="M5.2 12.4C7.1 10.8 9.5 9.9 12 9.9s4.9.9 6.8 2.5"/><path d="M8.6 16.2c1-.8 2.1-1.2 3.4-1.2s2.4.4 3.4 1.2"/><circle cx="12" cy="19.6" r="1.1" fill="currentColor"/></svg></span>
+        <span class="svc-name">eduroam</span>
+        <span class="svc-desc">Secure Wi-Fi that follows your students and staff to thousands of campuses worldwide, with no guest account to request.</span>
+        <span class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+      </a></li>
+      <li><a href="https://incommon.org/certificates/" target="_blank" rel="noopener noreferrer">
+        <span class="svc-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="9.5" r="5.5"/><path d="M8.4 14.2 7 22l5-2.4L17 22l-1.4-7.8"/></svg></span>
+        <span class="svc-name">Certificate Service</span>
+        <span class="svc-desc">Unlimited TLS/SSL certificates for every domain your institution owns, at one predictable annual rate.</span>
+        <span class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+      </a></li>
+      <li><a href="https://internet2.edu/cloud/internet2-net-plus-services/" target="_blank" rel="noopener noreferrer">
+        <span class="svc-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6.5 18h11a4 4 0 0 0 .5-7.97 6 6 0 0 0-11.6-1.4A3.8 3.8 0 0 0 6.5 18Z"/><path d="M12 10.5v5M9.5 13h5"/></svg></span>
+        <span class="svc-name">Internet2 NET+</span>
+        <span class="svc-desc">Cloud services evaluated and negotiated by the community, with contract terms and security reviews built for R&amp;E.</span>
+        <span class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+      </a></li>
+      <li><a href="https://internet2.edu/services/cloud-connect/" target="_blank" rel="noopener noreferrer">
+        <span class="svc-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 15h10a3.5 3.5 0 0 0 .4-6.97A5.5 5.5 0 0 0 6.7 6.7 3.4 3.4 0 0 0 7 15Z"/><path d="M4 19.5h16M8 22l-2-2.5L8 17M16 17l2 2.5-2 2.5"/></svg></span>
+        <span class="svc-name">Cloud Connect</span>
+        <span class="svc-desc">Private, high-capacity links straight into the major cloud providers, bypassing the commodity internet entirely.</span>
+        <span class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+      </a></li>
+      <li><a href="https://internet2.edu/network/initiatives-partnerships/insight-console/" target="_blank" rel="noopener noreferrer">
+        <span class="svc-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="4" width="19" height="13" rx="1.5"/><path d="M9 21h6M12 17v4M6 13l3-3.5 2.6 2.4L17.5 7"/></svg></span>
+        <span class="svc-name">Insight Console</span>
+        <span class="svc-desc">Your institution's traffic, capacity and performance across the Internet2 Network, in one place you can actually read.</span>
+        <span class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+      </a></li>
+      <li><a href="https://internet2.edu/security/performance-analytics/" target="_blank" rel="noopener noreferrer">
+        <span class="svc-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3.5 18a9 9 0 1 1 17 0"/><path d="M12 18l4.5-6"/><circle cx="12" cy="18" r="1.4" fill="currentColor"/></svg></span>
+        <span class="svc-name">Performance Tools</span>
+        <span class="svc-desc">Find the bottleneck before your researchers do, with perfSONAR measurement points across the R&amp;E ecosystem.</span>
+        <span class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+      </a></li>
+      <li><a href="https://internet2.edu/cloud/internet2-net-plus-services/cloud-scorecard/" target="_blank" rel="noopener noreferrer">
+        <span class="svc-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="2.8" width="16" height="18.4" rx="1.5"/><path d="M8 8.5l1.6 1.6L12.4 7M8 15l1.6 1.6L12.4 13.5M15 9h2M15 15.5h2"/></svg></span>
+        <span class="svc-name">Cloud Scorecard</span>
+        <span class="svc-desc">Compare cloud offerings against accessibility, security and privacy requirements before your institution commits.</span>
+        <span class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+      </a></li>
+      <li><a href="https://incommon.org/trusted-access/" target="_blank" rel="noopener noreferrer">
+        <span class="svc-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2.6 20 6v6c0 4.6-3.3 8.3-8 9.4-4.7-1.1-8-4.8-8-9.4V6Z"/><path d="M9 12.2l2 2 4-4.3"/></svg></span>
+        <span class="svc-name">Trusted Access Platform</span>
+        <span class="svc-desc">Open-source identity and access software, including Grouper and Shibboleth, maintained by and for the community.</span>
+        <span class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+      </a></li>
+    </ul>
+<div class="no-results" id="no-results" role="status">No matching services. Try another search.</div></section>
+<section class="engage" id="engage"><div class="wrap">
+<div class="heading-row engage-head"><div><div class="eyebrow">02 / Get engaged</div><h2>Ways to take part.</h2></div><p class="engage-lead">The services are only half of it. These are the ways your people take part—shaping the roadmap, building skills, and meeting the rest of the community.</p></div>
+<div class="engage-grid">
+
+  <a class="engage-card is-lead" href="https://internet2.edu/community/" target="_blank" rel="noopener noreferrer">
+    <span class="engage-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="6.6" r="3"/><path d="M5.8 19.4c0-3.3 2.8-5.9 6.2-5.9s6.2 2.6 6.2 5.9"/><circle cx="4" cy="10.4" r="2"/><circle cx="20" cy="10.4" r="2"/><path d="M2 19.4c0-2 1-3.6 2.6-4.3M22 19.4c0-2-1-3.6-2.6-4.3"/></svg></span>
+    <h3>Community Engagement and Impact</h3>
+    <p>Community groups, the Community Anchor Program, and advisory bodies where more than 2,000 member organizations set direction together—and where the results come back to every institution.</p>
+    <span class="engage-go">Get engaged with Internet2 <span aria-hidden="true">↗</span></span>
+  </a>
+
+  <a class="engage-card" href="https://internet2.edu/community/research-engagement/" target="_blank" rel="noopener noreferrer">
+    <span class="engage-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="2.1"/><ellipse cx="12" cy="12" rx="9.6" ry="4.1"/><ellipse cx="12" cy="12" rx="9.6" ry="4.1" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9.6" ry="4.1" transform="rotate(120 12 12)"/></svg></span>
+    <h3>Research Engagement</h3>
+    <p>Strengthening research computing and data capability, capacity, and resources across the community—so advanced infrastructure actually reaches the science.</p>
+    <span class="engage-go">Work with us <span aria-hidden="true">↗</span></span>
+  </a>
+
+  <div class="engage-card has-next">
+    <span class="engage-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3.2" y="5.2" width="17.6" height="15.4" rx="2.2"/><path d="M3.2 10.1h17.6M8 2.9v4.3M16 2.9v4.3"/><circle cx="8.4" cy="14.4" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="14.4" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+    <h3>Events</h3>
+    <p>Webinars, workshops, and the gatherings where the community meets face to face.</p>
+    <a class="engage-next" href="https://events.internet2.edu/website/96909/" target="_blank" rel="noopener noreferrer"><span class="engage-next-tag">Next up</span><strong>2027 Internet2 Global Summit</strong><span class="engage-next-meta">April 5–8, 2027 · Philadelphia, Pennsylvania</span><span class="engage-next-go">Save the date <span aria-hidden="true">↗</span></span></a>
+    <a class="engage-go" href="https://internet2.edu/events/" target="_blank" rel="noopener noreferrer">See all events <span aria-hidden="true">↗</span></a>
+  </div>
+
+  <a class="engage-card" href="https://internet2.edu/community/research-engagement/training/" target="_blank" rel="noopener noreferrer">
+    <span class="engage-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3.6 22 8.5l-10 4.9L2 8.5l10-4.9Z"/><path d="M6.2 10.9v4.8c0 1.7 2.6 3.1 5.8 3.1s5.8-1.4 5.8-3.1v-4.8"/><path d="M21.2 8.8v5.6"/></svg></span>
+    <h3>Training</h3>
+    <p>Workshops, skills sessions, and professional development for the people who run campus networking, identity, and cloud day to day.</p>
+    <span class="engage-go">Build your skills <span aria-hidden="true">↗</span></span>
+  </a>
+
+  <a class="engage-card" href="https://ms-cc.org/" target="_blank" rel="noopener noreferrer">
+    <span class="engage-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="8.9" cy="12" r="5.4"/><circle cx="15.1" cy="12" r="5.4"/></svg></span>
+    <h3>MS-CC</h3>
+    <p>Strengthening the student, faculty, and staff experience at HBCUs and TCUs through sustainable campus IT capability for data-intensive education and research.</p>
+    <span class="engage-go">Join the consortium <span aria-hidden="true">↗</span></span>
+  </a>
+
+</div></div></section>
+<section class="vision" id="about"><div class="wrap vision-main"><div class="vision-text"><div class="eyebrow">03 / Our purpose</div><h2>Building a digital research platform that works for everyone.</h2><p>AI, advanced computing, instruments, data, and cloud are reshaping what's possible. Internet2 is bringing the right infrastructure and people together so the research and education community can meet that future securely and collaboratively.</p><a class="link-line" href="https://internet2.edu/community/about-us/" target="_blank" rel="noopener noreferrer">Get to know Internet2 <span>↗</span></a></div><div class="vision-values"><div class="value"><b>01</b><div><h3>Federate and secure</h3><p>Simple, secure access to advanced resources—wherever research takes place.</p></div></div><div class="value"><b>02</b><div><h3>Collaborate across boundaries</h3><p>A connected ecosystem that makes capabilities possible at community scale.</p></div></div><div class="value"><b>03</b><div><h3>Amplify our collective voice</h3><p>Shared expertise and advocacy that advance the academic mission.</p></div></div><div class="value"><b>04</b><div><h3>Build for lasting impact</h3><p>More ways to participate, contribute, and benefit together.</p></div></div></div></div></section>
+<section class="news" id="news"><div class="wrap"><div class="heading-row"><div><div class="eyebrow">04 / News</div><h2>What's happening.</h2></div><a href="https://internet2.edu/news/" target="_blank" rel="noopener noreferrer" class="link-line">More from Internet2 ↗</a></div><div class="news-list"><a class="news-item" target="_blank" rel="noopener noreferrer" href="https://internet2.edu/internet2-announces-2026-board-of-trustees/"><small>November 13, 2026</small><h3>Internet2 Announces 2026 Board of Trustees Elections, Appointments, and New Officers</h3><span class="news-arrow">↗</span></a><a class="news-item news-event-feature" target="_blank" rel="noopener noreferrer" href="https://internet2.edu/building-scinet-together-to-enable-science-at-sc26/"><small>Featured · November 9, 2026</small><h3>Building SCinet Together to Enable Science at SC26</h3><p>Hundreds of volunteers from research, education, government, and industry build the network behind the SC conference.</p><span class="news-arrow">Read the story ↗</span></a><a class="news-item" target="_blank" rel="noopener noreferrer" href="https://internet2.edu/internet2s-adair-thaxton-elected-to-nanog-board-of-directors/"><small>November 3, 2026</small><h3>Internet2’s Adair Thaxton Elected to NANOG Board of Directors</h3><span class="news-arrow">↗</span></a></div></div></section>
+<section class="cta"><div class="wrap cta-inner"><div><h2>The next breakthrough starts with connection.</h2><p>Explore what Internet2 can make possible for your institution.</p></div><a class="btn btn-white" href="https://internet2.edu/contact/" target="_blank" rel="noopener noreferrer">Get in touch <span aria-hidden="true">↗</span></a></div></section>
+</main>
+<footer class="footer"><div class="wrap"><div class="footer-top"><div class="footer-brand"><a href="#top" class="footer-logo"><img alt="Internet2" src="data:image/png;base64,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"></a><p class="footer-blurb">Technology and community built around the needs of research and education.</p></div><div class="footer-col"><h4>Explore</h4><a href="#services">All services</a><a href="#engage">Get engaged</a><a href="#about">Our purpose</a></div><div class="footer-col"><h4>Internet2</h4><a href="https://internet2.edu/community/about-us/">About us</a><a href="https://internet2.edu/community/">Membership</a><a href="https://internet2.edu/news/">News</a></div><div class="footer-col"><h4>Connect</h4><a href="https://internet2.edu/events/">Events</a><a href="https://internet2.edu/contact/">Contact &amp; support</a><a href="#top">Back to top ↑</a></div></div><div class="footer-bottom"><span>© 2026 Internet2. Homepage design concept.</span><span>Concept mockup inspired by Mozilla’s editorial and product-first structure; draft strategic-plan messaging is for review, not approved external copy.</span></div></div></footer>
+<script>
+(function(){const nav=document.getElementById('navigation'),menu=document.getElementById('menu-toggle'),toggle=document.getElementById('search-toggle'),panel=document.getElementById('search-panel'),close=document.getElementById('search-close'),input=document.getElementById('service-search'),rows=[...document.querySelectorAll('.svc li')],empty=document.getElementById('no-results');function filter(){const q=input.value.trim().toLowerCase();let total=0;rows.forEach(r=>{let show=r.textContent.toLowerCase().includes(q);r.hidden=!show;r.style.display=show?'':'none';if(show)total++});empty.style.display=total?'none':'block'}function setSearch(open){panel.classList.toggle('open',open);toggle.setAttribute('aria-expanded',open?'true':'false');if(open){setTimeout(()=>input.focus(),0);document.getElementById('services').scrollIntoView({behavior:'smooth',block:'start'})}else{input.value='';filter()}}toggle.addEventListener('click',()=>setSearch(!panel.classList.contains('open')));close.addEventListener('click',()=>setSearch(false));input.addEventListener('input',filter);input.addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('services').scrollIntoView({behavior:'smooth'})});document.addEventListener('keydown',e=>{if(e.key==='Escape')setSearch(false)});menu.addEventListener('click',()=>{let b=nav.classList.toggle('open');menu.setAttribute('aria-expanded',b?'true':'false')});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}))})()
+</script>
+<script>
+/* ===================================================================
+   Interactive layer: live fiber map, scroll motion, nav state.
+   Everything here is additive — the page is fully readable without it.
+   =================================================================== */
+(function(){
+"use strict";
+var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- 1. Scroll progress bar + sticky header ---------- */
+var bar = document.createElement('div');
+bar.className = 'scroll-progress';
+document.body.appendChild(bar);
+var topbar = document.querySelector('.topbar');
+var ticking = false;
+function onScroll(){
+  var h = document.documentElement.scrollHeight - window.innerHeight;
+  var p = h > 0 ? Math.min(1, window.scrollY / h) : 0;
+  bar.style.transform = 'scaleX(' + p + ')';
+  if (topbar) topbar.classList.toggle('is-stuck', window.scrollY > 12);
+  ticking = false;
+}
+window.addEventListener('scroll', function(){
+  if (!ticking){ ticking = true; requestAnimationFrame(onScroll); }
+}, {passive:true});
+onScroll();
+
+/* ---------- 1b. Event ribbon: dismissible, remembered per viewer ---------- */
+var ribbon = document.getElementById('event-ribbon');
+var ribbonClose = document.getElementById('ribbon-close');
+if (ribbon && ribbonClose){
+  var RKEY = 'i2-ribbon-gs2027';
+  var wasDismissed = false;
+  // Storage can be blocked or empty; the ribbon must still render correctly.
+  try { wasDismissed = localStorage.getItem(RKEY) === '1'; } catch (e) {}
+  if (wasDismissed) ribbon.hidden = true;
+  ribbonClose.addEventListener('click', function(){
+    ribbon.hidden = true;
+    try { localStorage.setItem(RKEY, '1'); } catch (e) {}
+  });
+}
+
+/* ---------- 2. Reveal on scroll ---------- */
+if (!reduced && 'IntersectionObserver' in window){
+  var groups = [
+    ['.hero-content', 0],
+    ['.services-overline, .section-lead > *', 70],
+    ['.svc li', 45],
+    ['.engage-head > *', 70],
+    ['.engage-card', 95],
+    ['.vision-text > *', 80],
+    ['.vision-values .value', 90],
+    ['.news .heading-row > *', 70],
+    ['.news-list > *', 110],
+    ['.cta-inner > *', 90],
+    ['.footer-top > *', 60]
+  ];
+  groups.forEach(function(g){
+    var nodes = document.querySelectorAll(g[0]);
+    for (var i = 0; i < nodes.length; i++){
+      nodes[i].classList.add('reveal');
+      nodes[i].style.setProperty('--d', (i * g[1]) + 'ms');
+    }
+  });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {rootMargin:'0px 0px -12% 0px', threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  // The hero is above the fold — show it immediately on the next frame.
+  requestAnimationFrame(function(){
+    document.querySelectorAll('.hero-content.reveal').forEach(function(el){ el.classList.add('in'); });
+  });
+}
+
+/* ---------- 3. Current-section indicator in the nav ---------- */
+if ('IntersectionObserver' in window){
+  var navMap = {};
+  document.querySelectorAll('.nav-links a[href^="#"]').forEach(function(a){
+    navMap[a.getAttribute('href').slice(1)] = a;
+  });
+  var sections = Object.keys(navMap)
+    .map(function(id){ return document.getElementById(id); })
+    .filter(Boolean);
+  if (sections.length){
+    var sio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        var link = navMap[e.target.id];
+        if (link) link.classList.toggle('is-current', e.isIntersecting);
+      });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    sections.forEach(function(s){ sio.observe(s); });
+  }
+}
+
+/* ---------- 4. Pointer glow on buttons ---------- */
+document.querySelectorAll('.btn').forEach(function(b){
+  b.addEventListener('pointermove', function(e){
+    var r = b.getBoundingClientRect();
+    b.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    b.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  });
+});
+
+/* ===================================================================
+   5. THE NETWORK MAP
+   =================================================================== */
+var map = document.querySelector('.us-network-map');
+if (!map) return;
+
+var SVGNS = 'http://www.w3.org/2000/svg';
+function el(tag, attrs){
+  var n = document.createElementNS(SVGNS, tag);
+  for (var k in attrs) n.setAttribute(k, attrs[k]);
+  return n;
+}
+
+/* Illustrative node set for the concept — city plus the role it plays
+   on the backbone. Keys are the plotted coordinates in the viewBox. */
+var NODES = {
+  '67.2,63.9':   ['Seattle',           'Core node'],
+  '62.9,91.8':   ['Portland',          'Regional connector'],
+  '66.1,195.3':  ['Sunnyvale',         'Core node'],
+  '118.2,244.9': ['Los Angeles',       'Core node'],
+  '131.6,262.7': ['San Diego',         'Regional connector'],
+  '195.0,252.9': ['Phoenix',           'Regional connector'],
+  '197.2,155.4': ['Salt Lake City',    'Regional connector'],
+  '283.1,169.0': ['Denver',            'Core node'],
+  '262.5,231.2': ['Albuquerque',       'Regional connector'],
+  '385.1,261.9': ['Dallas',            'Core node'],
+  '402.9,302.2': ['Houston',           'Regional connector'],
+  '412.7,177.5': ['Kansas City',       'Regional connector'],
+  '429.0,99.0':  ['Minneapolis',       'Regional connector'],
+  '499.3,140.4': ['Chicago',           'Core node'],
+  '467.3,183.8': ['St. Louis',         'Regional connector'],
+  '539.6,248.9': ['Atlanta',           'Core node'],
+  '591.9,355.6': ['Miami',             'Regional connector'],
+  '611.2,221.8': ['Raleigh',           'Regional connector'],
+  '631.1,180.1': ['Washington, D.C.',  'Core node'],
+  '654.5,166.2': ['Philadelphia',      'Regional connector'],
+  '668.8,156.0': ['New York',          'Core node'],
+  '705.6,134.0': ['Boston',            'Regional connector'],
+  '557.0,166.0': ['Columbus',          'Regional connector'],
+  '594.4,159.6': ['Pittsburgh',        'Regional connector']
+};
+function key(x, y){ return (Math.round(x * 10) / 10) + ',' + (Math.round(y * 10) / 10); }
+/* The Summit's host city doubles as an event marker. Philadelphia is
+   already a node on the backbone, so it carries the date on hover. */
+var EVENT_NODE = {
+  key: '654.5,166.2',
+  tipTitle: '2027 Internet2 Global Summit',
+  tipMeta: 'April 5\u20138, 2027 \u00b7 Philadelphia, Pennsylvania',
+  caption: '2027 GLOBAL SUMMIT \u00b7 APRIL 5\u20138 \u00b7 PHILADELPHIA',
+  label: '2027 Internet2 Global Summit, April 5 to 8, Philadelphia, Pennsylvania. Save the date.',
+  url: 'https://events.internet2.edu/website/96909/'
+};
+// Normalise the lookup so "195.0,252.9" and "195,252.9" resolve to the same node.
+var NODE_INDEX = {};
+Object.keys(NODES).forEach(function(k){
+  var c = k.split(',');
+  NODE_INDEX[key(parseFloat(c[0]), parseFloat(c[1]))] = NODES[k];
+});
+function plural(n, word){ return n + ' ' + word + (n === 1 ? '' : 's'); }
+
+/* --- 5a. Read the existing geometry --- */
+var linkGroup = map.querySelector('.map-links');
+var links = [].slice.call(linkGroup.querySelectorAll('path'));
+var nodeCircles = [].slice.call(map.querySelectorAll('.network-node'));
+
+var nodes = nodeCircles.map(function(c){
+  var x = parseFloat(c.getAttribute('cx')), y = parseFloat(c.getAttribute('cy'));
+  var meta = NODE_INDEX[key(x, y)] || ['Network node', 'Connector'];
+  return {x:x, y:y, el:c, name:meta[0], role:meta[1],
+          core: parseFloat(c.getAttribute('r')) > 5, links:[],
+          event: key(x, y) === EVENT_NODE.key};
+});
+function nearest(x, y){
+  var best = null, bd = 1e9;
+  nodes.forEach(function(n){
+    var d = (n.x - x) * (n.x - x) + (n.y - y) * (n.y - y);
+    if (d < bd){ bd = d; best = n; }
+  });
+  return bd < 36 ? best : null;
+}
+
+/* --- 5b. Wire each fiber to the two nodes it joins --- */
+var edges = [];
+links.forEach(function(p){
+  var m = p.getAttribute('d').match(/-?\d+(?:\.\d+)?/g);
+  if (!m || m.length < 4) return;
+  var a = nearest(+m[0], +m[1]), b = nearest(+m[2], +m[3]);
+  if (!a || !b) return;
+  var e = {base:p, a:a, b:b, len:p.getTotalLength()};
+  a.links.push(e); b.links.push(e);
+  edges.push(e);
+});
+
+/* --- 5c. Light travelling through the fiber --- */
+var flowGroup = el('g', {'class':'map-flow','aria-hidden':'true'});
+var defs = map.querySelector('defs');
+var glow = el('filter', {id:'fiber-glow', x:'-30%', y:'-30%', width:'160%', height:'160%'});
+glow.appendChild(el('feGaussianBlur', {stdDeviation:'2.4', result:'b'}));
+var merge = el('feMerge', {});
+merge.appendChild(el('feMergeNode', {'in':'b'}));
+merge.appendChild(el('feMergeNode', {'in':'b'}));
+merge.appendChild(el('feMergeNode', {'in':'SourceGraphic'}));
+glow.appendChild(merge);
+defs.appendChild(glow);
+flowGroup.setAttribute('filter', 'url(#fiber-glow)');
+
+if (!reduced){
+  edges.forEach(function(e, i){
+    var f = el('path', {d: e.base.getAttribute('d')});
+    // Travel time tracks distance, so light moves at a believable, even pace.
+    var dur = Math.max(1.9, e.len / 95);
+    f.style.setProperty('--len', e.len + 'px');
+    f.style.setProperty('--d', (e.len > 170 ? 34 : 22) + 'px');
+    f.style.setProperty('--dur', dur.toFixed(2) + 's');
+    f.style.setProperty('--delay', (-(i * 0.47) % dur).toFixed(2) + 's');
+    e.flow = f;
+    flowGroup.appendChild(f);
+  });
+}
+linkGroup.parentNode.insertBefore(flowGroup, linkGroup.nextSibling);
+
+/* --- 5d. Beacons, hit targets, focus rings --- */
+var hitGroup = el('g', {'class':'map-hits'});
+var beaconGroup = el('g', {'class':'map-beacons','aria-hidden':'true'});
+nodes.forEach(function(n, i){
+  if (n.core && !reduced){
+    var bc = el('circle', {cx:n.x, cy:n.y, r:7, 'class':'node-beacon'});
+    bc.style.setProperty('--bdur', (3.2 + (i % 4) * 0.55).toFixed(2) + 's');
+    bc.style.setProperty('--bdelay', ((i % 6) * 0.63).toFixed(2) + 's');
+    beaconGroup.appendChild(bc);
+  }
+  var hit = el('circle', {cx:n.x, cy:n.y, r:15, 'class':'map-hit',
+    role:'button', 'aria-label': n.name + ' — ' + n.role + ', ' + plural(n.links.length, 'path')});
+  var ring = el('circle', {cx:n.x, cy:n.y, r:13, 'class':'node-ring'});
+  n.hit = hit; n.ring = ring;
+
+  if (n.event){
+    n.el.classList.add('is-event');
+    if (!reduced){
+      var e1 = el('circle', {cx:n.x, cy:n.y, r:8, 'class':'event-beacon'});
+      var e2 = el('circle', {cx:n.x, cy:n.y, r:8, 'class':'event-beacon b2'});
+      beaconGroup.appendChild(e1); beaconGroup.appendChild(e2);
+    }
+    // The marker is a real link, so it is focusable and clickable on its own.
+    var link = el('a', {'class':'map-hit-link', target:'_blank', rel:'noopener noreferrer',
+                        'aria-label': EVENT_NODE.label});
+    link.setAttribute('href', EVENT_NODE.url);
+    hit.removeAttribute('role');
+    hit.setAttribute('aria-hidden', 'true');
+    link.appendChild(hit); link.appendChild(ring);
+    hitGroup.appendChild(link);
+    n.linkEl = link;
+  } else {
+    hitGroup.appendChild(hit);
+    hitGroup.appendChild(ring);
+  }
+});
+map.appendChild(beaconGroup);
+map.appendChild(hitGroup);
+
+/* --- 5e. Tooltip --- */
+var tip = el('g', {'class':'map-tip','aria-hidden':'true'});
+var tipBg = el('rect', {rx:7, ry:7, x:0, y:0, width:10, height:10});
+var tipCity = el('text', {'class':'tip-city', x:0, y:0});
+var tipRole = el('text', {'class':'tip-role', x:0, y:0});
+tip.appendChild(tipBg); tip.appendChild(tipCity); tip.appendChild(tipRole);
+map.appendChild(tip);
+
+var caption = map.querySelector('text');
+if (caption) caption.setAttribute('class', 'map-caption');
+var captionDefault = caption ? caption.textContent : '';
+var live = document.createElement('p');
+live.className = 'sr-only';
+live.setAttribute('aria-live', 'polite');
+document.querySelector('.hero-art').appendChild(live);
+
+function showTip(n){
+  tipCity.textContent = n.event ? EVENT_NODE.tipTitle : n.name;
+  tipRole.textContent = n.event ? EVENT_NODE.tipMeta
+                                : n.role + ' · ' + plural(n.links.length, 'path');
+  var w = Math.max(tipCity.getComputedTextLength(), tipRole.getComputedTextLength()) + 28;
+  var h = 46;
+  // Flip the card toward the middle of the map when the node sits near an edge.
+  var x = n.x + 18, y = n.y - h - 14;
+  if (x + w > 772) x = n.x - w - 18;
+  if (y < 6) y = n.y + 18;
+  tipBg.setAttribute('x', x); tipBg.setAttribute('y', y);
+  tipBg.setAttribute('width', w); tipBg.setAttribute('height', h);
+  tipCity.setAttribute('x', x + 14); tipCity.setAttribute('y', y + 20);
+  tipRole.setAttribute('x', x + 14); tipRole.setAttribute('y', y + 35);
+  tip.classList.add('on');
+}
+
+var active = null;
+function setActive(n){
+  if (active === n) return;
+  active = n;
+  map.classList.toggle('is-active', !!n);
+  edges.forEach(function(e){
+    var on = n && (e.a === n || e.b === n);
+    e.base.classList.toggle('lit', !!on);
+    if (e.flow) e.flow.classList.toggle('lit', !!on);
+  });
+  nodes.forEach(function(m){
+    var on = n && (m === n || n.links.some(function(e){ return e.a === m || e.b === m; }));
+    m.el.classList.toggle('lit', !!on);
+    m.hit.classList.toggle('on', m === n);
+  });
+  if (n){
+    showTip(n);
+    if (caption){
+      caption.textContent = n.event ? EVENT_NODE.caption
+        : (n.name + ' · ' + n.role + ' · ' + plural(n.links.length, 'path')).toUpperCase();
+      caption.classList.add('on');
+    }
+    live.textContent = n.event ? EVENT_NODE.label
+      : n.name + ', ' + n.role + ', ' + plural(n.links.length, 'connected path') + '.';
+  } else {
+    tip.classList.remove('on');
+    if (caption){ caption.textContent = captionDefault; caption.classList.remove('on'); }
+  }
+}
+
+nodes.forEach(function(n){
+  n.hit.addEventListener('pointerenter', function(){ setActive(n); });
+  n.hit.addEventListener('pointerleave', function(){ setActive(null); });
+  var ft = n.linkEl || n.hit;
+  ft.addEventListener('focus', function(){ setActive(n); });
+  ft.addEventListener('blur', function(){ setActive(null); });
+  ft.addEventListener('keydown', function(e){
+    if (e.key === 'Escape'){ ft.blur(); setActive(null); }
+  });
+});
+
+/* --- 5f. Parallax drift under the pointer --- */
+var hero = document.querySelector('.hero');
+if (hero && !reduced){
+  hero.addEventListener('pointermove', function(e){
+    var r = hero.getBoundingClientRect();
+    map.style.setProperty('--px', ((e.clientX - r.left) / r.width - .5).toFixed(3));
+    map.style.setProperty('--py', ((e.clientY - r.top) / r.height - .5).toFixed(3));
+  });
+  hero.addEventListener('pointerleave', function(){
+    map.style.setProperty('--px', 0); map.style.setProperty('--py', 0);
+  });
+}
+
+/* --- 5g. Pause control for the light --- */
+if (!reduced){
+  var toggle = el('g', {'class':'map-toggle', role:'button', tabindex:'0',
+                        'aria-label':'Pause the network animation'});
+  toggle.appendChild(el('rect', {x:86, y:384, rx:13, ry:13, width:124, height:26}));
+  var tl = el('text', {x:148, y:401, 'text-anchor':'middle'});
+  tl.textContent = 'PAUSE MOTION';
+  toggle.appendChild(tl);
+  map.appendChild(toggle);
+  function flip(){
+    var paused = map.classList.toggle('is-paused');
+    tl.textContent = paused ? 'RESUME MOTION' : 'PAUSE MOTION';
+    toggle.setAttribute('aria-label', (paused ? 'Resume' : 'Pause') + ' the network animation');
+  }
+  toggle.addEventListener('click', flip);
+  toggle.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); flip(); }
+  });
+}
+
+/* --- 5h. Draw the fiber in on first paint --- */
+if (!reduced){
+  edges.forEach(function(e, i){
+    e.base.style.strokeDasharray = e.len + ' ' + e.len;
+    e.base.style.strokeDashoffset = e.len;
+  });
+  flowGroup.style.opacity = '0';
+  requestAnimationFrame(function(){
+    edges.forEach(function(e, i){
+      e.base.style.transition = 'stroke-dashoffset 1.1s cubic-bezier(.2,.7,.3,1) ' + (i * 32) + 'ms';
+      e.base.style.strokeDashoffset = '0';
+    });
+    flowGroup.style.transition = 'opacity .9s ease 1.1s';
+    flowGroup.style.opacity = '1';
+  });
+}
+
+/* --- 5i. Keep the map decorative on small screens --- */
+var small = window.matchMedia('(max-width: 760px)');
+function syncSmall(){
+  var art = document.querySelector('.hero-art');
+  if (small.matches){
+    art.setAttribute('aria-hidden', 'true');
+    nodes.forEach(function(n){
+      n.hit.removeAttribute('tabindex');
+      if (n.linkEl) n.linkEl.setAttribute('tabindex', '-1');
+    });
+    if (typeof toggle !== 'undefined' && toggle) toggle.setAttribute('tabindex', '-1');
+  } else {
+    art.removeAttribute('aria-hidden');
+    nodes.forEach(function(n){
+      if (n.linkEl) { n.linkEl.setAttribute('tabindex', '0'); n.hit.removeAttribute('tabindex'); }
+      else n.hit.setAttribute('tabindex', '0');
+    });
+    if (typeof toggle !== 'undefined' && toggle) toggle.setAttribute('tabindex', '0');
+  }
+}
+syncSmall();
+if (small.addEventListener) small.addEventListener('change', syncSmall);
+})();
+</script>
+</body></html>
